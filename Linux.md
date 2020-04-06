@@ -53,7 +53,7 @@ For example if we want to know about `ls`, then you can use this command :
 
 ## Navigating the File System
 
-### Current Working Directory 
+### - Current Working Directory 
 ---
   If we working in terminal and we forget about where we are in the directory, we can use `pwd` command. This command will tell you where you are in the terminal. 
 #### Format :
@@ -67,7 +67,7 @@ If you open your terminal for the first time (and you didn't change the default 
 /home/skyfall
 ```
 
-### List Of Directory
+### - List Of Directory
 ---
   If you want to know list of file or directory in a directory you can use `$ ls`. 
 #### Format :
@@ -85,7 +85,7 @@ It is an option to show long listing format of information about general file or
 - Size
 - Date and etc
 
-### Change the working directory
+### - Change the working directory
 ---
 If you need to go from a directory to other directory and you will need command `$ cd`. cd is a command for changing the working directory. 
 #### Format :
@@ -108,9 +108,50 @@ the result will be same. It's up to you, but i suggest you if you don't know abo
 Otherwise,if you want to get back to higher directory you can use `$ cd ..`.\
 
 ## File and Directory Command
-### Create Directory
-If we want to create a directory we can 
+### - Create Directory
+Command for make directori(es) is `$ mkdir`
+#### Format :
+```bash
+$ mkdir dir_name
+```
+#### Example :
+make 3 directories(ex : dir1,dir2,dir3) in single command :
+```bash
+$ mkdir dir1 dir2 dir3
+```
+### - Remove (file,directory,etc)
+1. Command for remove file(s) is `$ rm`
+#### Example :
+```bash
+$ rm file1 file2
+```
+2. Command for remove directori(es) is `$ rm -r`. Only works for empty directory.
+#### Example :
+```bash
+$ rmdir dir1 dir2
+```
+3. Command for remove directori(es) is `$ rm -r`.
+#### Example :
+```bash
+$ rm -r dir1 dir2
+```
+4. Command for **force remove** file(s) without confirmation is `$ rm -f`
+#### Example :
+```bash 
+$ rm -f file1 file2
+```
+5. Command for **force remove** directori(es) without confirmation is ` $ rm -r`
+#### Example :
+```bash
+$ rm -rf dir1 dir2
+```
 
+### Copy (file & directory)
+1. Command for copy file(s) is `$ cp`.
+#### Format :
+```bash
+$ cp dir1 dir2
+```
 
 
 
