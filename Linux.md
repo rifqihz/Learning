@@ -121,42 +121,124 @@ $ mkdir dir1 dir2 dir3
 ```
 ### - Remove (file,directory,etc)
 1. Command for remove file(s) is `$ rm`
+#### Format :
+```bash
+$ rm file_name
+```
 #### Example :
+Remove 2 files(ex : file1 and file2) in single command :
 ```bash
 $ rm file1 file2
 ```
-2. Command for remove directori(es) is `$ rm -r`. Only works for empty directory.
+
+2. Command for remove directori(es) is `$ rmdir`. Only works for empty directory.
+#### Format :
+```bash
+$ rmdir dir_name
+```
 #### Example :
+Remove 2 empty directories (ex : dir1 and dir2) in single command :
 ```bash
 $ rmdir dir1 dir2
 ```
-3. Command for remove directori(es) is `$ rm -r`.
+
+3. Command for remove non-empty and empty directori(es) is `$ rm -r`.
+#### Format :
+```bash
+$ rm -r dir_name
+```
 #### Example :
+Remove 2 non-empty/empty directories (ex : dir1 and dir2) in single command :
 ```bash
 $ rm -r dir1 dir2
 ```
+
 4. Command for **force remove** file(s) without confirmation is `$ rm -f`
+#### Format :
+```bash
+$ rm -f file_name
+```
 #### Example :
+Force remove 2 files (ex : file1 and file2) without any confirmation in single command :
 ```bash 
 $ rm -f file1 file2
 ```
-5. Command for **force remove** directori(es) without confirmation is ` $ rm -r`
+
+5. Command for **force remove** directori(es) without confirmation is ` $ rm -rf`
+#### Format :
+```bash
+$ rm -rf dir_name
+```
 #### Example :
+Force remove 2 directories (ex : dir1 and dir2) without any confirmation in single command :
 ```bash
 $ rm -rf dir1 dir2
 ```
 
-### Copy (file & directory)
+### - Copy (file & directory)
 1. Command for copy file(s) is `$ cp`.
 #### Format :
 ```bash
-$ cp dir1 dir2
+$ cp file_name destination
+```
+#### Example :
+Copying 3 file (ex : file1,file2,file3) from `/Documents` directory to `/home`.
+```bash
+~/Document$ cp {file1,file2,file3} ~
+```
+If you want to copy many file with the same prefix but different ending (ex : file1-file 10). You can do :
+```bash
+~/Document$ cp file{1..10} ~
+```
+2. Command for copy directori(es) is `$ cp -r`
+#### Format :
+```bash
+$ cp -r dir_name destination
+```
+#### Example :
+Copying 2 directories (ex : dir1,dir2) from `/home` directory to `/Documents`.
+```bash
+~$ cp dir{1,2} ~/Documents
+```
+### - Move and Rename 
+Move and renaming file(s) or directori(es) can be done with `$ mv`
+#### Format :
+- Rename:
+```bash
+$ mv oldfile newfile
+```
+- moving :
+```bash
+$ mv file dir_name
+```
+#### Example :
+- Rename a file (file1 to file2) :
+```bash
+$ mv file1 file2
+```
+- Rename a directory (dir1 to dir2) :
+```bash
+$ mv dir1 dir2
+```
+- move a file to directory (file 1 from ~ to /Documents) :
+```bash
+$ mv file1 ~/Documents
 ```
 
-
-
-
-
+### - Create file or update the access or modification time
+#### Format :
+```bash
+$ touch file_name
+```
+#### Example :
+- Make 10 file (file1 - file10) with same prefix different ending :
+```bash
+$ touch file{1..10}
+```
+- update, we can update file/folder using this format :
+```bash
+$ touch existing_
+```
 
 
 
