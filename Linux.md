@@ -235,10 +235,11 @@ $ touch file_name
 ```bash
 $ touch file{1..10}
 ```
-- update, we can update file/folder using this format :
+- update the modification time, we can update file/folder using this format :
 ```bash
 $ touch existing_
 ```
+
 
 
 
