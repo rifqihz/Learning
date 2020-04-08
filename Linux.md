@@ -1,4 +1,4 @@
-# :bookmark_tabs: Linux Basic Command Line Cheatsheet 
+# :notebook_with_decorative_cover: Linux Basic Command Line Cheatsheet 
 
 ## :information_source: Getting Command Information 
   Knowing how to get information about a command is so important and very useful if we are working in the terminal.
@@ -51,7 +51,7 @@ For example if we want to know about `ls`, then we can use this command :
 ~$ whatis ls
 ```
 
-## Navigating the File System
+## :bookmark_tabs: Navigating the File System
 
 ### - Current Working Directory 
 ---
@@ -107,7 +107,7 @@ the result will be the same. It's up to you, but i suggest you if you don't know
 
 Otherwise,if you want to go to higher directory you can use `$ cd ..` command.
 
-## File and Directory Command
+## :file_folder: File and Directory Command
 ### - Create Directory
 Command for make directori(es) is `$ mkdir`
 #### Format :
@@ -239,6 +239,119 @@ $ touch file{1..10}
 ```bash
 $ touch existing_
 ```
+
+### - View the content of the file
+If you want to read the content of the file you can use `$ cat ` command.
+#### Format :
+``` bash
+$ cat file_name
+```
+There are a few other options that would be useful. That is `$ cat > file_name` and `$ cat >> file_name`. This two option is used for add content of the file. The different is if you use '>' you will delete the content and rewrite it with your input. If you use '>>' your input will be added in the last of the content.
+
+### - Browse through a file
+There are two option for browse through a file. There are `$ more` and `$ less`. `$ more` is a file perusal filter for CRT viewing.`$ less` is the opposite of `$ more`.
+#### Format :
+More :
+```bash
+$ more file_name
+```
+Less :
+```bash
+$ less file_name
+```
+
+### - Display first 10 line of the file
+#### Format :
+```bash
+$ head file_name
+```
+
+### - Display the last 10 line of the file
+#### Format :
+```bash
+$ tail file_name
+```
+### - Detect file type
+We can use `$ file` for detect file type using file header.
+#### Format :
+```bash
+$ file file_name
+```
+
+### - Print all string(s)
+If we want to print all string (printable) we can use ` $ strings`
+#### Format :
+```bash
+$ strings file_name
+```
+
+## :mag: Search
+### - Search a pattern in a file
+We can use `$ grep` if we want to search a pattern in a file.
+#### Format :
+```bash
+$ grep pattern file_name
+```
+It will show the content of the file that have the same pattern like your input pattern.
+
+### - Search a pattern recursively in a directory
+We can use `$ grep -r` if we want to search a pattern in a directory. It will search pattern in all file(s) inside the directory.
+#### Format :
+```bash
+$ grep -r pattern dir_name
+```
+
+### - Find files and directory by name
+If we don't know or forget about where is a file or a directory we can use `$ locate ` command.
+#### Format :
+```bash
+$ locate file_or_dir_name
+```
+
+## :closed_lock_with_key: File Permission
+
+![Linux Permission](https://1.bp.blogspot.com/-KCp0GyTq5og/WcALlG2-0NI/AAAAAAAAAM8/af0o4Z_BNvsV1Ar8MWA8_CeqS_bwKLRGACLcBGAs/s640/perms1.png)
+
+There are 3 type of file permission (rwx) :
+Permission | Description | Num
+---------- | ----------- | ---
+Read | Read the content | 4
+Write | Change the content (add,edit,delete) | 2
+Execute | Run the file/script | 1
+
+So, if we want to change file permission we can use the sum of permission number :
+Permission | Symbol | Number
+---------- | ------ | ------
+Read, Write, Execute | rwx | 7
+Read, Write | rw- | 6
+Read, Execute | r-x | 5
+Read only | r-- | 4
+Write, Execute | -rx | 3
+Write only | -w- | 2
+Execute Only | --x | 1
+Nothing | --- | 0
+
+We can change the permission using `$ chmod`
+#### Format :
+- Change file permission by number
+```bash
+$ chmod xxx file_name
+```
+'xxx' should be change with the sum of the number of file permission. first x is for user, second x is for group and third x is for everyone.
+- Change file permission by letter (the change will be added for user,group and everyone)
+```bash
+$ chmod +z file_name
+```
+'z' should be changed with 'r' or 'w' or 'x' or both or all of them.
+
+
+## :link: Source 
+1. Image source : 
+- http://trickster-id.blogspot.com/2017/09/File-permission-pada-linux.html
+2. Content source : 
+- https://www.linuxtrainingacademy.com/linux-commands-cheat-sheet/#4_8211_USER_INFORMATION_AND_MANAGEMENT
+- https://github.com/joulephicar/holy-text/blob/master/linux.md
+
 
 
 
