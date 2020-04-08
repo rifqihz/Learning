@@ -54,7 +54,7 @@ For example if we want to know about `ls`, then we can use this command :
 ## :bookmark_tabs: Navigating the File System
 
 ### - Current Working Directory 
----
+
   If we working in terminal and we forget about where we are in the directory, we can use `pwd` command. This command will tell you where you are in the terminal. 
 #### Format :
 ```bash
@@ -68,7 +68,7 @@ If you open your terminal for the first time (and you didn't change the default 
 ```
 
 ### - List Of Directory
----
+
   If you want to know list of file or directory in a directory you can use `$ ls`. 
 #### Format :
 ```bash 
@@ -86,7 +86,7 @@ It is an option to show long listing format of information about general file or
 - Date and etc
 
 ### - Change the working directory
----
+
 If you need to go from a directory to other directory, you can use `$ cd` command. It's a command to change the working directory. 
 #### Format :
 ```bash
