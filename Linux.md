@@ -1,7 +1,7 @@
 # :bookmark_tabs: Linux Basic Command Line Cheatsheet 
 
 ## :information_source: Getting Command Information 
-  Knowing how to get information about a command is so important and very useful for learning how a command works.
+  Knowing how to get information about a command is so important and very useful if we are working in the terminal.
 Most command have a ```--help``` option which print a description and short message about how to run the command.
 #### Format :
 ```bash
@@ -26,27 +26,27 @@ For example if we want to know how to get information about ```$ cd``` we can us
 ```bash
 ~$ man command_name
 ```
-For example if we want to know get information about `ls` we can use 
+For example if we want to know how to get information about `ls` we can use :
 ```bash
 ~$ man ls
 ```
-Beside that there are a command that can help you if you forget about a command but you remember a few keyword that related to the command. That command is `$ apropos`. 
+Beside that there are a command that can help you if you forget about a command but you remember a few keyword that related to the command. The command is `$ apropos`. 
 #### Format :
 ```bash
 ~$ apropos key
 ```
-For example if we want forget about command `$ whatis` and we only remember 'what',then we can use this command :
+For example if we forget about command `$ whatis` and we only remember 'what', then we can use this command :
 ```bash
 ~$ apropos what
 ```
 It'll show you the related command(s) with key 'what' and a short description of each command(s).\
 
-And if you just want to know about the description about a command, you can use `$ whatis`. It will shows only the description of a command.
+And if you just want to know about the description about a command, you can use `$ whatis`. It will shows the description of a command only.
 #### Format :
 ```bash
 ~$ whatis command_name
 ```
-For example if we want to know about `ls`, then you can use this command :
+For example if we want to know about `ls`, then we can use this command :
 ```bash
 ~$ whatis ls
 ```
@@ -87,12 +87,12 @@ It is an option to show long listing format of information about general file or
 
 ### - Change the working directory
 ---
-If you need to go from a directory to other directory and you will need command `$ cd`. cd is a command for changing the working directory. 
+If you need to go from a directory to other directory, you can use `$ cd` command. It's a command to change the working directory. 
 #### Format :
 ```bash
 ~$ cd
 ```
-For example if i was in `/home` directory and i want to go to `/Downloads` directory. Between `/home` directory there are a directory called 'skyfall' . So i need to go to skyfall directory and then i go to downloads directory. Here's the implementation :
+For example if i was in `/home` directory and i want to go to `/Downloads` directory. Next of `/home` directory, there are a directory called 'skyfall' . So i need to go to skyfall directory and then i go to downloads directory. Here's the implementation :
 ```bash
 /home$ cd skyfall
 ~$ cd Downloads
@@ -103,9 +103,9 @@ or i can use
 /home$ cd skyfall/Downloads
 ~/Donwloads$
 ```
-the result will be same. It's up to you, but i suggest you if you don't know about where is your the location of your destination directory,you do it one-by-one like in the first example.
+the result will be the same. It's up to you, but i suggest you if you don't know about where is your the location of your destination directory,you do it one-by-one like in the first example.
 
-Otherwise,if you want to get back to higher directory you can use `$ cd ..`.\
+Otherwise,if you want to go to higher directory you can use `$ cd ..` command.
 
 ## File and Directory Command
 ### - Create Directory
