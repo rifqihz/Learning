@@ -1,11 +1,11 @@
-# Bash Scripting
-## Pendahuluan
+# :computer: Bash Scripting
+## :clapper: Pendahuluan
 Shell adalah program yang menjembatani user dengan sistem operasi, kernel. Umumnya disediakan shell sebagai user interface. Selain itu shell memungkinkan user untuk menyusun sekumpulan perintah atau beberapa file untuk dieksekusi sebagai program. Untuk Bash format file yang digunakan adalah .sh.
 
-## Shebang (!#)
+## :symbols: Shebang (!#)
 Shebang diletakkan pada awal script. Script selanjutnya menjelaskan tentang intrepeter yang akan digunakan untuk menginterpretasikan script sesudahnya. Format Shebang untuk bashscripting adalah `#!/bin/bash` dimana path yang akan digunakan adalah path untuk Bash.
 
-## VIM (optional)
+## :robot: VIM (optional)
 Cara mendownload pada ubuntu yaitu dengan perintah 
 ```bash
 $ sudo apt-get install vim
@@ -16,20 +16,20 @@ Buat file (misal nama filenya hello) dengan format (.sh) dan edit dengan VIM den
 $ vim hello.sh
 ```
 
-## Print
+## :pencil: Print
 Untuk melakukan print (menampilkan output di layar) kita dapat menggunakan perintah `echo`. Contohnya pada script berikut :
 ```bash
 #!/bin/bash
 echo "Hello World"
 ```
-## Comment
+## :hash: Comment
 Membuat komentar dengan tanda `#`. Format membuat komentar pada script :
 ```bash
 #!/bin/bash
 # isi komentar 
 ```
 
-## Variabel
+## :abc: Variabel
 Dalam menggunakan variabel kita dapat membuat variabel baru atau menggunakan variabel yang sudah disediakan oleh sistem./
 Variabel-variabel yang sudah disediakan oleh sistem antara lain :
 Command | Isi
@@ -81,8 +81,8 @@ num2=$2
 # menampilkan hasil penjumlahan num1 dan num2
 echo " $num1 + $num2 = $(( num1 + num2 )"
 ```
-## Input
-### Meminta Inputan dari user
+## :keyboard: Masukan (Input)
+### Meminta Masukan dari user
 Kita dapat menggunakan perintah `read`, contohnya :
 ```bash
 echo "masukkan nama anda"
@@ -106,7 +106,7 @@ read -sp "Masukkan password : " pwdx
 
 ```
 
-### Lebih Banyak Inputan
+### Multi Masukan 
 Apabila kita ingin melakukan inputan lebih banyak maka kita dapat menambahkaan lebih banyak variabel baru setelah `read`. Contoh :
 ```bash
 #!/bin/bash
@@ -127,7 +127,7 @@ echo "angka kelima  : $num5"
 echo "total = $total" 
 ````
 
-## Aritmatika
+## :1234: Aritmatika
 ### Operasi aritmatika dalam bash
 Tabel operasi aritmatika yang umumnya digunakan :
 Operator | Operasi Hitung 
@@ -197,7 +197,7 @@ b=16423
 echo "${#b} # 5
 ```
 
-## Kontrol Percabangan
+## :twisted_rightwards_arrows: Kontrol Percabangan 
 Di dalam pemrograman terdapat beberapa melakukan percabangan, seperti if-else, nested if, switch case dan ternary. Pada Bash Scripting kita juga dapat membuat kontrol percabangan. Hal ini akan memudahkan kita untuk menentukan mana aksi yang dikerjakan dan mana yang tidak.
 ### 'If' Dasar
 Dalam pemrograman salah satu percabangan menggunakan 'if statement'. Dalam Bash untuk melakukan if maka diperlukan 'kondisi' dan 'aksi'. Format untuk membuat pernyataan if di Bash, sebagai berikut :
@@ -252,7 +252,7 @@ int1 -le int2 | nilai int1 kurang dari nilai int2
 -w file | file tersebut ada dan ada izin untuk mengedit file
 -x file | file tersebut ada dan ada izin untuk mengeksekusi file
 
-### If Bersaran (Nested if)
+### If Bersarang (Nested if)
 If bersarang merupakan kondisi dimana di dalam suatu if terdapat if yang lainnya. If bersarang biasanya digunakan pada kondisi dimana diperlukan lebih dari satu pengecekan kondisi. Contoh :
 ```bash
 #!/bin/bash
@@ -361,7 +361,7 @@ case $os in
 esac
 ```
 
-## Looping
+## :repeat: Perulangan (Looping)
 ### While Loop
 While loop merupakan looping atau perulangan yang cukup mudah. Yaitu apabila suatu kondisi bernilai benar maka akan dilakukan suatu perintah berulang-ulang. Pada penggunaan While loop tidak ada batas looping tertentu, sehingga ini cocok dilakukan apabila kita tidak tau berapa kali kita akan melakukan looping. Format :
 ```bash
@@ -538,10 +538,10 @@ Done
 ```
 **Note** : PS3 merupakan variabel untuk menampilkan perintah input, defaultnya bernilai **#?**, sehingga dapat diganti terlebih dahulu.
 
-## Functions
+## :card_index_dividers: Fungsi
 Fungsi sangatlah diperlukan untuk reuse atau menggunakan kembali suatu script. Fungsi sangat berguna apabila membuat suatu program yang kompleks dan butuh untuk memanggil suatu fungsi berulang ulang. 
 
-### Fungsi
+### Fungsi Dasar
 Membuat fungsi cukup mudah, formatnya yaitu :
 ```bash
 nama_fungsi () {
@@ -654,9 +654,9 @@ date
 # fungsi date yang seharusnya outputnya adalah waktu berubah menjadi memanggil fungsi cal
 ```
 
-## Source
+## :link: Source
 - https://ryanstutorials.net/bash-scripting-tutorial/
-
+- https://pemula.linux.or.id/programming/bash-shell.html
 
 
 
