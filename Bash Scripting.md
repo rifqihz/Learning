@@ -613,9 +613,49 @@ echo "Panjang nama anda adalah : $?"
 **Note** : Argumen yang digunakan adalah argumen 1 yang mana argumen setelah tanda spasi akan dinilai sebagai argumen 2 dan seterusnya.
 
 ### Variabel Lokal 
-Variabel lokal adalah suatu variabel yang hanya bisa digunakan 
+Variabel lokal adalah suatu variabel yang hanya bisa digunakan di dalam suatu lingkup perintah atau fungsi. Contoh :
+```bash
+#!/bin/bash
 
+variabel () {
 
+# var1 berisi kata "var lokal
+  local var1="var lokal"
+  var2="var global"
+        echo "Di dalam fungsi"
+  echo "isi var1 : $var1 , isi var 2: $var2"
+}
+
+variabel
+
+# Disini var1 tidak ada isinya karena var 1 merupakan variabel lokal yang isinya hanya berlaku di dalam fungsi 'variabel' saja
+echo "Di luar fungsi"
+echo "isi var1 : $var1 , isi var 2: $var2"
+```
+
+Output :
+```
+Di dalam fungsi
+isi var1 : var lokal , isi var 2: var global
+Di luar fungsi
+isi var1 :  , isi var 2: var global
+```
+
+### Fungsi Override
+Ini berfungsi untuk membuat suatu fungsi dengan nama sama namun memiliki parameter atau output yang berbeda. Contohnya :
+
+```bash
+#!/bin/bash
+# menimpa fungsi 'date' yang sebelumnya sudah ada dengan fungsi 'cal'
+date () {
+  cal
+}
+date
+# fungsi date yang seharusnya outputnya adalah waktu berubah menjadi memanggil fungsi cal
+```
+
+## Source
+- https://ryanstutorials.net/bash-scripting-tutorial/
 
 
 
