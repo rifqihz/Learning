@@ -297,48 +297,323 @@ If-Elif-Else biasa digunakann untuk program yang lebih kompleks. Contoh :
 # inputan user
 read -p "Berapa umurmu" umur
 
-# jika umur lebih dari 
-if [ $umur > 80 ]; then 
+# jika umur lebih dari 80 maka print anda tidak boleh menyetir
+if [ $umur -gt 80 ]; then 
   echo "Anda tidak boleh menyetir"
-elif [ $umut > 17 ]; then
+# jika umur lebih dari 17 dan kurang dari 80 maka print anda boleh menyetir jika sudah memiliki SIM
+elif [ $umur -ge 17 ]; then
   echo "Anda boleh menyetir jika sudah memiliki SIM"
+# jika umur selain keterangan diatas maka print Anda belum memiliki SIM
 else 
   echo "Anda belum memiliki SIM"
+fi
+```
 
+### Operasi Boolean
+Apabila kita perlu untuk melakukan pengecekan beberapa kondisi maka kita dapat menggunakan operasi logika boolean. Terdapat dua logika operasi boolean, yaitu 
+1) operasi **and** ( && )
+Operasi 'and' akan bersifat benar apabila **semua kondisi** yang memiliki syarat 'and' benar
+1) operasi **or**  ( || )
+Operasi 'or' akan bersifat benar apabila **salah satu kondisi** yang memiliki syarat 'or' benar
 
-
-Contoh penggunaan : 
+Contoh :
 ```bash
 #!/bin/bash
 
-# membuat file bernama file1
-touch file1
-# membuat direktori bernama dir1
-mkdir dir1
+a=5
 
+if [ $a -gt 10 ] && [ ech$[a%2] == 1 ] ; then
+  echo "semua pernyataan benar"
+elif [ $a -le 10 ] || [ $[a%2] == 1 ] ; then
+  echo "salah satu pernyataan benar"
+else
+  echo "Tidak ada yang benar"
+fi
+```
 
-file=file1
-dir=dir1
+### Switch case
+Switch case biasanya digunakan apabila kita ingin melakukan cek kondisi yang spesifik. Contoh :
+```bash
+#!/bin/bash
 
-if [ -d file1 ]; then
-  echo "$file1 adalah";
-```  
+read -p "Sistem operasi yang dipakai? :" os
 
+# setiap selesai case diberi ;; dan apabila selesai ditutup dengan esac
 
+# yang akan di cek adalah var os
+case $os in
+# apabila os sama dengan Windows maka print biasa
+"windows")
+        echo "Biasa"
+        ;;
+# apabila os sama dengan Mac maka print Better 
+"Mac")
+        echo "Better"
+        ;;
+# apabila os sama dengan Linux maka print Best 
+"Linux")
+        echo "Best"
+        ;;
+# apabila os tidak sama dengan yang terdapat di pilihan maka print OS apa tuh
+*)
+  echo "OS apa tuh?"
+  ;;
+esac
+```
 
+## Looping
+### While Loop
+While loop merupakan looping atau perulangan yang cukup mudah. Yaitu apabila suatu kondisi bernilai benar maka akan dilakukan suatu perintah berulang-ulang. Pada penggunaan While loop tidak ada batas looping tertentu, sehingga ini cocok dilakukan apabila kita tidak tau berapa kali kita akan melakukan looping. Format :
+```bash
+while [ kondisi ] ; do
+  aksi
+done
 
+# atau
+while [ kondisi ] 
+do
+  aksi
+done
+```
 
+Contoh :
+```bash
+#!/bin/bash
 
+i=1
 
+# jika i <= 10
+while [ $i -le 10 ]; do
+# maka print i dan nilai i berubah menjadi i + 1
+  echo "$i"
+  i=$((i + 1))
+done;
+# menampilkan 1 sampai 10
+```
 
+### Until Loops
+Until loops mirip dengan while loops perbedaannya adalah pada kondisinya apabila while loops akan berhenti jika **false** , maka until loops akan berhenti jika **true**. Format Until loops sama dengan while loops. Contoh : 
 
+```bash
+#!/bin/bash
 
+i=1
 
+# Perbedaannya dengan while loops terletak di -ge
+# jika while loops akan berhenti jika i lebih dari 10 (kondisi false)
+# until loop akan berhenti jika i lebih dari 10 (kondisi true)
+# jika i >= 10
+while [ $i -ge 10 ]; do
+# maka print i dan nilai i berubah menjadi i + 1
+  echo "$i"
+  i=$((i + 1))
+done;
+# menampilkan 1 sampai 10
+```
 
+### For loops
+For loops berbeda dengan looping sebelumnya, pada for loop terdapat batas awal dan akhir dari looping. Sehingga for-loop dilakukan apabila kita mengetahui berapa kali kita melakukan looping. Format :
+```bash
+#!/bin/bash
 
+for variabel in jangkauan; do
+  aksi
+done
 
+# atau
 
+for variabel in jangkauan
+do
+  aksi
+done
 
+```
+
+Contoh 1:
+```bash
+#!/bin/bash
+
+names="John Wick"
+
+# Akan menampilkan setiap kata dari variabel nama
+for name in $names ; do
+  echo $name
+done
+```
+Output :
+```
+John
+Wick
+```
+
+Contoh 2:
+```bash
+#!/bin/bash
+
+# Menampilkan angka ganjil dari 1 sampai 10
+
+# {1..10} berarti i = 1 sampai i = 10
+for i in {1..10}; do
+# apabila genap maka akan dilewati
+  if [ $[i % 2] == 0 ]; then
+    continue;
+  else
+    echo "$i"
+  fi    
+done
+```
+Output :
+```
+1
+3
+5
+7
+9
+```
+
+### Break dan Continue
+`break` berfungsi untuk menghentikan atau keluar dari looping secara paksa dan `continue` berfungsi untuk melewati suatu aksi pada kondisi tertentu. Contoh :
+```bash
+#!/bin/bash
+
+# range 1 sampai 20
+for i in {1..20}; do
+  # jika i bernilai 15 maka looping dihentikan
+  if [ $i -eq 15 ]; then
+    break
+  fi
+  # jika i bernilai ganjil maka akan dilewati
+  if [ $[i % 2] == 1 ];then
+    continue
+  else
+    echo "$i"
+  fi
+done  
+``` 
+
+### Select
+Mekanisme `select` dapat membuat sebuah sistem menu yang simpel. Format :
+```bash
+#!/bin/bash
+
+select variabel in jangkauan
+do
+  aksi
+done
+```
+Contoh :
+```bash
+#!/bin/bash
+
+names="Farrah Klarybel Merris Judyanna Lubenah"
+
+PS3="Choice : "
+
+select name in $names
+do
+  if [ $name == "Lubenah" ]; then
+    break
+  fi
+  echo "$name"
+done
+echo "Done"
+```
+Output :
+```
+1) Farrah
+2) Klarybel
+3) Merris
+4) Judyanna
+5) Lubenah
+Choice : 1
+Farrah
+Choice : 2
+Klarybel
+Choice : 3
+Merris
+Choice : 4
+Judyanna
+Choice : 5
+Done
+```
+**Note** : PS3 merupakan variabel untuk menampilkan perintah input, defaultnya bernilai **#?**, sehingga dapat diganti terlebih dahulu.
+
+## Functions
+Fungsi sangatlah diperlukan untuk reuse atau menggunakan kembali suatu script. Fungsi sangat berguna apabila membuat suatu program yang kompleks dan butuh untuk memanggil suatu fungsi berulang ulang. 
+
+### Fungsi
+Membuat fungsi cukup mudah, formatnya yaitu :
+```bash
+nama_fungsi () {
+  aksi
+}
+
+# atau
+
+function nama_fungsi {
+  aksi
+}
+```
+
+Contoh :
+```bash
+#!/bin/bash
+fungsi () {
+  echo "Hello World"
+}
+
+fungsi
+```
+Output :
+```
+Hello World
+```
+
+### Argumen
+Untuk pemrograman yang lebih interaktif terkadang kita memerlukan adanya argumen pada fungsi, kita dapat menggunakan argumen tersebut untuk berbagai keperluan. Contoh :
+```bash
+#!/bin/bash
+
+# Fungsi
+gender () {
+# Apabila argumen kedua bernilai male maka Mr
+  if [ $2 == "male" ]; then 
+    echo "Hello , Mr $1"
+# Apabila argumen kedua bernilai female maka Mrs
+  elif [ $2 == "female" ]; then 
+    echo "Hello , Mrs $1"
+# Apabila argumen kedua selain itu maka kosong
+  else 
+    echo "Hello , $1"
+        fi      
+}
+
+# inputan user 2 kali input pertama disimpan pada variabel a dan input kedua pada variabel b
+read -p "Input your name and gender : " a b
+
+# nilai variabel a menjadi argumen pertama dan nilai variabel b menjadi argumen kedua
+gender $a $b
+
+```
+
+### Fungsi dengan Nilai Kembalian
+Terkadang kita memerlukan fungsi yang berfungsi hanya untuk mengembalikan nilai bukan langsung melakukan print nilai tersebut. Contoh :
+
+```bash
+#!/bin/bash
+panjang_nama () {
+  return ${#1}
+}
+
+read -p "Masukkan nama anda : " nama
+panjang_nama $nama
+echo "Panjang nama anda adalah : $?"
+```
+
+**Note** : Argumen yang digunakan adalah argumen 1 yang mana argumen setelah tanda spasi akan dinilai sebagai argumen 2 dan seterusnya.
+
+### Variabel Lokal 
+Variabel lokal adalah suatu variabel yang hanya bisa digunakan 
 
 
 
