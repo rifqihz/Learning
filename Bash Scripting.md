@@ -38,17 +38,17 @@ Command | Isi
 **$1 - $9** | 9 argumen pertama pada Bash Script
 **$#** | Jumlah argumen yang dimasukkan ke Bash Script
 **$$** | PID (Process ID) dari script yang dijalankan
-**@** | Semua argumen yang dimasukkan ke Bash script
-**USER** | Username dari user yang menjalankan script
-**HOSTNAME** | nama host dari script yang berjalan
-**SECONDS**  | waktu(detik) sejak script dijalankan
-**RANDOM** | Angka acak 
-**LINENO** | Baris variabel ini pada scipt
+**$@** | Semua argumen yang dimasukkan ke Bash script
+**$USER** | Username dari user yang menjalankan script
+**$HOSTNAME** | nama host dari script yang berjalan
+**$SECONDS**  | waktu(detik) sejak script dijalankan
+**$RANDOM** | Angka acak 
+**$LINENO** | Baris variabel ini pada scipt
 
 Cara membuat variabel baru secara manual yaitu dengan format 
 ```nama_variabel=nilai```
 . Tanpa ada spasi pada tanda "=". 
-#### Contoh :
+Contoh inisialisasii:
 ```bash
 #!/bin/bash
 name=Zhafrant
@@ -186,7 +186,7 @@ echo "$b" # 14
 ```
 
 ### Panjang dari suatu Variabel
-Apabila kita mempunyai suatu variabel maka kita dapat mengecek panjang dari variabel tersebut dengan format : ```${#variabel}. Kita dapat menggunakannya untuk mengetahui panjang dari kalimat maupun angka. Contohnya :
+Apabila kita mempunyai suatu variabel maka kita dapat mengecek panjang dari variabel tersebut dengan format : ```${#variabel}```. Kita dapat menggunakannya untuk mengetahui panjang dari kalimat maupun angka. Contohnya :
 ```bash
 #!/bin/bash
 
@@ -197,7 +197,137 @@ b=16423
 echo "${#b} # 5
 ```
 
-## If Statement
+## Kontrol Percabangan
+Di dalam pemrograman terdapat beberapa melakukan percabangan, seperti if-else, nested if, switch case dan ternary. Pada Bash Scripting kita juga dapat membuat kontrol percabangan. Hal ini akan memudahkan kita untuk menentukan mana aksi yang dikerjakan dan mana yang tidak.
+### 'If' Dasar
+Dalam pemrograman salah satu percabangan menggunakan 'if statement'. Dalam Bash untuk melakukan if maka diperlukan 'kondisi' dan 'aksi'. Format untuk membuat pernyataan if di Bash, sebagai berikut :
+```bash
+#!/bin/bash
+
+# diberi spasi setelah if dan setiap kurung siku diberi jarak
+
+# apabila penulisan then sejajar dengan if maka diperlukan ';'
+if [ kondisi ]; then
+  aksi
+fi
+
+# Atau
+
+if [ kondisi ]
+then
+  aksi
+fi
+
+```
+Pada Bash Scirpting pernyataan if ditutup menggunakan 'fi'. Contoh penerapannya :
+```bash
+#!/bin/bash
+
+# Menampilkan di layar setelah itu inputan tersembunyi lalu disimpan di variabel pswd
+read -sp "Masukkan password : "  pswd
+
+# jika pswd sama dengan 'linux' maka print 'Password Benar'
+if [ pswd == "Linux ]; then
+  `echo "Password Benar"
+fi
+
+```
+### Kondisi yang umum digunakan
+Operator | Deskripsi
+-------- | ------
+!kondisi | Jika fungsi bernilai salah maka..
+-n String | Panjang String lebih dari 0
+-z String | Panjang Strring adalah 0
+string1 == string2 | nilai string1 sama dengan nilai string2
+string1 != string2 | nilai string1 tidak sama dengan nilai string2
+int1 -eq int2 | nilai int1 sama dengan nilai int2
+int1 -ge int2 | nilai int1 lebih dari sama dengan nilai int2
+int1 -le int2 | nilai int1 kurang dari sama dengan nilai int2
+int1 -ge int2 | nilai int1 lebih dari nilai int2
+int1 -le int2 | nilai int1 kurang dari nilai int2
+-d file | file tersebut ada dan merupakan direktori
+-e file | file tersebut ada 
+-r file | file tersebut ada dan ada izin untuk membaca file 
+-s file | file tersebut ada dan memiliki isi (ukurannya lebih dari 0)
+-w file | file tersebut ada dan ada izin untuk mengedit file
+-x file | file tersebut ada dan ada izin untuk mengeksekusi file
+
+### If Bersaran (Nested if)
+If bersarang merupakan kondisi dimana di dalam suatu if terdapat if yang lainnya. If bersarang biasanya digunakan pada kondisi dimana diperlukan lebih dari satu pengecekan kondisi. Contoh :
+```bash
+#!/bin/bash
+
+# Menampilkan ke layar setelah itu mengambil inputan dan dimasukkan ke dalam variabel usrnm
+read -p "Username : " usrnm
+
+# Menampilkan di layar setelah itu inputan tersembunyi lalu disimpan di variabel paswd
+read -sp "Password : " paswd
+
+
+if [ $usrnm == "Admin" ]; then
+  if [ $paswd == "Admin" ]; then
+  # Jika usrnm dan paswd benar maka print selamat datang
+    echo "Selamat Datang"
+  fi
+fi
+```
+
+### If-Else
+If-else biasa digunakan apabila suatu kondisi bernilai salah dan diperlukan tindakan terhadap kondisi yang bernilai salah tersebut. Contoh :
+```bash
+#!/bin/bash
+
+# Menampilkan ke layar setelah itu mengambil inputan dan dimasukkan ke dalam variabel angka
+read -p "Masukkan satu angka random : " angka
+
+# Program ganjil genap
+if [ $[angka % 2] == 1 ]; then
+# Jika true maka akan print ganjil
+  echo "$angka merupakan bilangan ganjil"
+else
+# Jika false maka akan print genap
+  echo "$angka merupakan bilangan genap"
+fi
+```
+### If-Elif-Else
+If-Elif-Else biasa digunakann untuk program yang lebih kompleks. Contoh :
+```bash
+#!/bin/bash
+
+# inputan user
+read -p "Berapa umurmu" umur
+
+# jika umur lebih dari 
+if [ $umur > 80 ]; then 
+  echo "Anda tidak boleh menyetir"
+elif [ $umut > 17 ]; then
+  echo "Anda boleh menyetir jika sudah memiliki SIM"
+else 
+  echo "Anda belum memiliki SIM"
+
+
+
+Contoh penggunaan : 
+```bash
+#!/bin/bash
+
+# membuat file bernama file1
+touch file1
+# membuat direktori bernama dir1
+mkdir dir1
+
+
+file=file1
+dir=dir1
+
+if [ -d file1 ]; then
+  echo "$file1 adalah";
+```  
+
+
+
+
+
 
 
 
