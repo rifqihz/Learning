@@ -1,6 +1,14 @@
 # :computer: Bash Scripting
 ## :clapper: Pendahuluan
-Shell adalah program yang menjembatani user dengan sistem operasi, kernel. Umumnya disediakan shell sebagai user interface. Selain itu shell memungkinkan user untuk menyusun sekumpulan perintah atau beberapa file untuk dieksekusi sebagai program. Untuk Bash format file yang digunakan adalah .sh.
+Shell adalah program yang menjembatani user dengan sistem operasi, kernel. Umumnya disediakan shell sebagai user interface. Selain itu shell memungkinkan user untuk menyusun sekumpulan perintah atau beberapa file untuk dieksekusi sebagai program. 
+
+Terdapat beberapa shell pada linux,antara lain :
+- Bourne shell(sh)
+- C shell(csh)
+- Korn shell(ksh)
+- Bourne again shell(bash) dan lain lain
+
+Disini kita akan menggunakan Bourne again shell atau bash.
 
 ## :symbols: Shebang (!#)
 Shebang diletakkan pada awal script. Script selanjutnya menjelaskan tentang intrepeter yang akan digunakan untuk menginterpretasikan script sesudahnya. Format Shebang untuk bashscripting adalah `#!/bin/bash` dimana path yang akan digunakan adalah path untuk Bash.
@@ -11,10 +19,34 @@ Cara mendownload pada ubuntu yaitu dengan perintah
 $ sudo apt-get install vim
 ```
 
-Buat file (misal nama filenya hello) dengan format (.sh) dan edit dengan VIM dengan perintah
+Buat file (misal nama filenya hello) dan edit dengan VIM dengan perintah
 ```bash
-$ vim hello.sh
+$ vim hello
 ```
+lalu klik a untuk masuk ke mode 'Insert' lalu masukkan perintah berikut :
+```bash
+#!/bin/bash
+echo Hello World
+```
+Untuk mengeksekusinya kita perlu merubah 'File Permission' dari file tersebut dengan menggunakan perintah `chmod xxx hello` xxx dapat diganti sesuai dengan kebutuhan, namun pada umumnya adalah 755 (Penjelasan tentang file permission ada di[sini](https://github.com/zhafrant/Learning/blob/master/Linux.md).
+
+Setelah merubah File Permission selanjutnya kita mengeksekusinya dengan perintah :
+```bash
+$ ./hello
+```
+Maka akan menghasilkan output berupa `Hello World`.
+
+## Mengapa ( ./ )?
+Apabila kita mengeksekusi perintah lain seperti `ls` kita tidak memerlukan `./ls`, hal itu karena Bash mengeksekusi file yang ada pada variabel `$PATH`. Bash akan mencari pada direktori dan sub direktori pada PATH dan akan mengeksekusi perintah yang memiliki nama sesuai. Untuk melihat direktori apa saja kita dapat menggunakan perintah berikut :
+```bash
+$ echo "$PATH"
+```
+
+Maka jika kita ingin mengubah file kita agar dapat dieksekusi tanpa `./` maka kita dapat memindah file kita ke salah satu direktori `$PATH`. Contoh :
+```bash
+$ sudo mv hello /usr/bin/
+```
+Maka kita dapat mengeksekusinya hanya dengan perintah `hello`.
 
 ## :pencil: Print
 Untuk melakukan print (menampilkan output di layar) kita dapat menggunakan perintah `echo`. Contohnya pada script berikut :
