@@ -1,6 +1,6 @@
 # :bulb: Learning 
 ### Content Table  :
-No | Title | Mark |Description 
+No | Topic | Mark |Description 
 ---| ----- | -----|----------- 
 1 | Linux :computer: | :heavy_check_mark: | The basic Linux command which can help you working in Linux terminal 
 2 | Github Markdown :octocat:  | :heavy_check_mark: | Basic Markdown Command for github
