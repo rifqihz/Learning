@@ -146,10 +146,22 @@ You should put `1.` or `-` or `*` below the first letter of higher list. For exa
     1. List 3 lvl 3    
        - List 3 lvl 4
          1. List 3 lvl 5
-  
-    
 
+## Task List
+To create a task list we can use `[ ]`. To mark it completed, use `[x]`.
+#### Example :
+```
+- [x] Linux.md
+- [x] Bash Scripting.md
+- [ ] Markdown.md
+```
+#### Output
+- [x] Linux.md
+- [x] Bash Scripting.md
+- [ ] Markdown.md
 
+## Source
+- https://help.github.com/en/github/writing-on-github/basic-writing-and-formatting-syntax#section-links
 
 
 
