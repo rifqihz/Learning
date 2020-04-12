@@ -75,7 +75,26 @@ echo Started : %time%
 echo Finished : %time%
 ```
 
+We also can use syntax highlighting for a programming language. 
+#### Format :
+````
+```java
+public class Main{
+   public static void main (String [] args){
+      System.out.println("Hello World");
+   }
+}
+```
+````
 
+#### Output :
+```java
+public class Main{
+   public static void main (String [] args){
+      System.out.println("Hello World");
+   }
+}
+```
 ## Links
 We can create an inline link using by wrap the link text with the brackets `[text]` and wrap the url with the parentheses `(URL)`. 
 #### Format :
