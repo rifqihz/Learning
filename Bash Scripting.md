@@ -36,7 +36,7 @@ $ ./hello
 ```
 Maka akan menghasilkan output berupa `Hello World`.
 
-## Mengapa ( ./ )?
+## :question: Mengapa ( ./ )?
 Apabila kita mengeksekusi perintah lain seperti `ls` kita tidak memerlukan `./ls`, hal itu karena Bash mengeksekusi file yang ada pada variabel `$PATH`. Bash akan mencari pada direktori dan sub direktori pada PATH dan akan mengeksekusi perintah yang memiliki nama sesuai. Untuk melihat direktori apa saja kita dapat menggunakan perintah berikut :
 ```bash
 $ echo "$PATH"
